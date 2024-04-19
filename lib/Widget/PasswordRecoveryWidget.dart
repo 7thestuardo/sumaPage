@@ -12,49 +12,56 @@ class PasswordRecoveryWidget extends StatelessWidget {
           },
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Recuperar contraseña',
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
+      body: Container(
+        // Envuelve PasswordRecoveryWidget en un Container con tamaño específico
+        width:
+            MediaQuery.of(context).size.width, // Usa el ancho máximo disponible
+        height:
+            MediaQuery.of(context).size.height, // Usa el alto máximo disponible
+        child: Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Recuperar contraseña',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            SizedBox(height: 20.0),
-            Text(
-              'Ingrese el correo asociado a su cuenta para recuperar la contraseña.',
-              style: TextStyle(
-                fontSize: 16.0,
+              SizedBox(height: 20.0),
+              Text(
+                'Ingrese el correo asociado a su cuenta para recuperar la contraseña.',
+                style: TextStyle(
+                  fontSize: 16.0,
+                ),
               ),
-            ),
-            SizedBox(height: 20.0),
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: 'Correo',
-                border: OutlineInputBorder(),
+              SizedBox(height: 20.0),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Correo',
+                  border: OutlineInputBorder(),
+                ),
               ),
-            ),
-            SizedBox(height: 20.0),
-            Text(
-              '**Posteriormente, la estaremos enviando al correo indicado.**',
-              style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
+              SizedBox(height: 20.0),
+              Text(
+                '**Posteriormente, la estaremos enviando al correo indicado.**',
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
               ),
-            ),
-            SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: () {
-                // Lógica para enviar el correo de recuperación de contraseña
-              },
-              child: Text('Enviar'),
-            ),
-          ],
+              SizedBox(height: 20.0),
+              ElevatedButton(
+                onPressed: () {
+                  // Lógica para enviar el correo de recuperación de contraseña
+                },
+                child: Text('Enviar'),
+              ),
+            ],
+          ),
         ),
       ),
     );

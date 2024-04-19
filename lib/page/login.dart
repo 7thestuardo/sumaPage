@@ -95,25 +95,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 10.0),
               TextButton(
-                onPressed: () {
-                  // showDialog(
-                  //   context: context,
-                  //   builder: (BuildContext context) {
-                  //     return CustomDialog(
-                  //       title: "",
-                  //       onClosePressed: () {
-                  //         Navigator.of(context).pop(); // Cerrar el diálogo
-                  //       },
-                  //       content: Builder(
-                  //         builder: (BuildContext context) {
-                  //           return PasswordRecoveryWidget(); // Supongo que esta es tu página de inicio de sesión
-                  //         },
-                  //       ),
-                  //     );
-                  //     // Mostrar el widget de recuperación de contraseña
-                  //   },
-                  // );
-                },
+                onPressed: () {},
                 child: const Text(
                   '¿Olvidaste tu contraseña?',
                   style: TextStyle(

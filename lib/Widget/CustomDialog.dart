@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login/Widget/PasswordRecoveryWidget.dart';
 
 class CustomDialog extends StatefulWidget {
   final String title;
@@ -6,9 +7,6 @@ class CustomDialog extends StatefulWidget {
   final VoidCallback onClosePressed;
   final double dialogWidth;
   final bool showClose;
-  final Color? backgroundColor; // Nuevo parámetro para el color de fondo
-  final DecorationImage?
-      backgroundImage; // Nuevo parámetro para la imagen de fondo
 
   const CustomDialog({
     Key? key,
@@ -17,8 +15,6 @@ class CustomDialog extends StatefulWidget {
     required this.onClosePressed,
     this.dialogWidth = 300.0,
     this.showClose = true,
-    this.backgroundColor, // Agregar el parámetro opcional
-    this.backgroundImage, // Agregar el parámetro opcional
   }) : super(key: key);
 
   @override
@@ -55,61 +51,35 @@ class _CustomDialogState extends State<CustomDialog>
     return ScaleTransition(
       scale: _scaleAnimation,
       child: Dialog(
-        backgroundColor: widget.backgroundColor, // Establecer el color de fondo
         child: Container(
           width: widget.dialogWidth,
-          decoration: BoxDecoration(
-            image: widget.backgroundImage, // Establecer la imagen de fondo
-          ),
           child: SingleChildScrollView(
+            // Agregamos SingleChildScrollView
             child: Padding(
-              padding: EdgeInsets.all(5.0),
+              padding: EdgeInsets.all(16.0),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      if (widget.showClose) _buildCloseButton(),
-                    ],
-                  ),
+                  if (widget.showClose)
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: IconButton(
+                        icon: Icon(Icons.close),
+                        onPressed: widget.onClosePressed,
+                      ),
+                    ),
                   Text(
                     widget.title,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 16.0,
+                      fontSize: 20.0,
                     ),
                   ),
-                  SizedBox(height: 2),
+                  SizedBox(height: 10),
                   widget.content,
                 ],
               ),
             ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildCloseButton() {
-    return Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: Container(
-        width: 32,
-        height: 32,
-        decoration: BoxDecoration(
-          color: Colors.black,
-          shape: BoxShape.circle,
-        ),
-        alignment: Alignment.center, // Centra el contenido del contenedor
-        child: Center(
-          child: IconButton(
-            icon: Icon(
-              Icons.close,
-              color: Colors.white,
-            ),
-            onPressed: widget.onClosePressed,
-            iconSize: 16,
           ),
         ),
       ),
